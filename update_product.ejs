@@ -1,0 +1,7 @@
+<h1> update Productmaster</h1>
+<form method="post" action='/update_product'> 
+    <input type="hidden" name="updateproductid" value="<%- update_pro[0].Productid %>" required> <br><br>
+    <input type="text" name="updateproductdata" value="<%- update_pro[0].Productname %>"   required> <br><br>
+    <input type="submit" value="submit" />
+</form>
+<a href="/listdetails">Back</a>

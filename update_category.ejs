@@ -1,0 +1,9 @@
+<h1>update Categorymaster</h1>
+
+<form action='/update_category' method="post">
+    <input type="text" name="updatecategory" value="<%- update_category[0].categoryname %>" required><br><br>
+    <input type="text" name="updatecatproductid" value="<%- update_category[0].productid %>" > <br><br>
+    <input type="submit" value="submit" />
+
+</form>
+<a href="/listdetails">Back</a>

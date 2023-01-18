@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Product-categorylist</h1>
+    <table border="1">
+        <tr>
+          <th>productid</th>
+          <th>Productname</th>
+          <th>categoryid</th>
+          <th>categoryname</th>
+        
+          <th>operation</th>
+        </tr>
+        <% if(prolist.length > 0 ){ %>
+            <% for(var i=0;i<prolist.length;i++){ %>
+        <tr>
+          
+          <td><%- prolist[i].productsid %></td>
+          <td><%- prolist[i].Productname %></td>
+          <td><%- prolist[i].categoryid %></td>
+          <td><%- prolist[i].categoryname %></td>
+          
+          <td><a href="/delete_data?id=<%- prolist[i].productsid %>">delete</a>
+          <a href="/edit_product?id=<%- prolist[i].productsid %>">Edit Product</a>
+          <a href="/edit_category?id=<%- prolist[i].productsid %>">Edit category</a></td>
+        </tr>
+        <% } %>
+        <% }else { %>
+            <h1>no data found</h1>
+            <% } %>
+            <a href="/">Add product</a>
+      </table>
+</body>
+</html>
