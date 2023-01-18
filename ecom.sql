@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2023 at 05:27 PM
+-- Generation Time: Jan 18, 2023 at 07:49 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -33,6 +33,13 @@ CREATE TABLE `categorymaster` (
   `productid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `categorymaster`
+--
+
+INSERT INTO `categorymaster` (`categoryid`, `categoryname`, `productid`) VALUES
+(1, 'boalt', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +52,13 @@ CREATE TABLE `productmaster` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `productmaster`
+--
+
+INSERT INTO `productmaster` (`Productid`, `Productname`) VALUES
+(1, 'watch');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -53,7 +67,7 @@ CREATE TABLE `productmaster` (
 --
 ALTER TABLE `categorymaster`
   ADD PRIMARY KEY (`categoryid`),
-  ADD KEY `productid` (`productid`);
+  ADD KEY `categorymaster_ibfk_1` (`productid`);
 
 --
 -- Indexes for table `productmaster`
@@ -69,13 +83,13 @@ ALTER TABLE `productmaster`
 -- AUTO_INCREMENT for table `categorymaster`
 --
 ALTER TABLE `categorymaster`
-  MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `productmaster`
 --
 ALTER TABLE `productmaster`
-  MODIFY `Productid` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `Productid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -85,7 +99,7 @@ ALTER TABLE `productmaster`
 -- Constraints for table `categorymaster`
 --
 ALTER TABLE `categorymaster`
-  ADD CONSTRAINT `categorymaster_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `productmaster` (`Productid`);
+  ADD CONSTRAINT `categorymaster_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `productmaster` (`Productid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
